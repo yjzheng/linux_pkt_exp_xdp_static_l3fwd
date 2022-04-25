@@ -14,25 +14,26 @@ else
 BINDIR = bin/
 endif
 
-MODS += $(BINDIR)tcp_probe
+#MODS += $(BINDIR)tcp_probe
 MODS += $(BINDIR)xdp_l2fwd
 MODS += $(BINDIR)xdp_l3fwd
-MODS += $(BINDIR)xdp_acl
+MODS += $(BINDIR)xdp_l3fwd_static
+#MODS += $(BINDIR)xdp_acl
 
-MODS += $(BINDIR)execsnoop
-MODS += $(BINDIR)opensnoop
-MODS += $(BINDIR)cgroup_sock
-MODS += $(BINDIR)kvm-nested
+#MODS += $(BINDIR)execsnoop
+#MODS += $(BINDIR)opensnoop
+#MODS += $(BINDIR)cgroup_sock
+#MODS += $(BINDIR)kvm-nested
 
-MODS += $(BINDIR)netmon
-MODS += $(BINDIR)pktlatency
-MODS += $(BINDIR)ovslatency
-MODS += $(BINDIR)net_rx_action
-MODS += $(BINDIR)napi_poll
-MODS += $(BINDIR)xdp_devmap_xmit
+#MODS += $(BINDIR)netmon
+#MODS += $(BINDIR)pktlatency
+#MODS += $(BINDIR)ovslatency
+#MODS += $(BINDIR)net_rx_action
+#MODS += $(BINDIR)napi_poll
+#MODS += $(BINDIR)xdp_devmap_xmit
 
-MODS += $(BINDIR)xdp_dummy
-MODS += $(BINDIR)vm_info
+#MODS += $(BINDIR)xdp_dummy
+#MODS += $(BINDIR)vm_info
 
 VPATH := .
 

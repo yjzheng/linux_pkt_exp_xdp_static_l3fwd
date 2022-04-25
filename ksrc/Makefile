@@ -1,7 +1,8 @@
 # SPDX-License-Identifier: GPL-2.0
 
 include ../config.mk
-
+KSRC= /lib/modules/$(shell uname -r)/build
+KBLD= /lib/modules/$(shell uname -r)/build
 ifneq (,$(BUILDDIR))
 OBJDIR = $(BUILDDIR)/ksrc/obj/
 else
@@ -23,6 +24,7 @@ MODS += $(OBJDIR)xdp_devmap_xmit.o
 MODS += $(OBJDIR)tcp_probe.o
 MODS += $(OBJDIR)xdp_l2fwd.o
 MODS += $(OBJDIR)xdp_l3fwd.o
+MODS += $(OBJDIR)xdp_l3fwd_static.o
 MODS += $(OBJDIR)xdp_dummy.o
 MODS += $(OBJDIR)xdp_vmegress.o
 
@@ -42,6 +44,7 @@ CFLAGS += -Wno-address-of-packed-member
 CFLAGS += -Wno-tautological-compare
 CFLAGS += -Wno-unknown-warning-option
 CFLAGS += -fno-stack-protector
+#CFLAGS += -g
 
 INCLUDES  = -I../include
 INCLUDES += -I../libbpf/usr/include
@@ -69,10 +72,10 @@ build:
 	@mkdir -p $(OBJDIR)
 
 $(OBJDIR)%.o: %.c
-	$(QUIET_CLANG)$(CLANG) $(NOSTDINC_FLAGS) $(INCLUDES) \
+	$(CLANG) $(NOSTDINC_FLAGS) $(INCLUDES) \
 		$(SINCLUDES) $(DEFS) $(CFLAGS) \
 		-O2 -emit-llvm $(CLANG_FLAGS) -c $< -o $@.cl
-	$(QUIET_LLC)$(LLC) -march=bpf $(LLC_FLAGS) -filetype=obj -o $@ $@.cl
+	$(LLC) -march=bpf $(LLC_FLAGS) -filetype=obj -o $@ $@.cl
 	@rm $@.cl
 
 clean:
