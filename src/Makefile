@@ -18,6 +18,7 @@ endif
 MODS += $(BINDIR)xdp_l2fwd
 MODS += $(BINDIR)xdp_l3fwd
 MODS += $(BINDIR)xdp_l3fwd_static
+MODS += $(BINDIR)af_packet
 #MODS += $(BINDIR)xdp_acl
 
 #MODS += $(BINDIR)execsnoop
@@ -38,7 +39,7 @@ MODS += $(BINDIR)xdp_l3fwd_static
 VPATH := .
 
 CC = gcc
-CFLAGS += -O2 -g -Wall
+CFLAGS += -g -Wall
 
 INCLUDES  = -I../include -I../include/uapi
 INCLUDES += -I../include/tools

@@ -9,28 +9,29 @@ else
 OBJDIR = obj/
 endif
 
-MODS += $(OBJDIR)execsnoop.o
-MODS += $(OBJDIR)execsnoop_legacy.o
-MODS += $(OBJDIR)opensnoop.o
-MODS += $(OBJDIR)kvm-nested.o
-
-MODS += $(OBJDIR)pktdrop.o
-MODS += $(OBJDIR)pktlatency.o
-MODS += $(OBJDIR)ovslatency.o
-MODS += $(OBJDIR)net_rx_action.o
-MODS += $(OBJDIR)napi_poll.o
-MODS += $(OBJDIR)xdp_devmap_xmit.o
-
-MODS += $(OBJDIR)tcp_probe.o
+#MODS += $(OBJDIR)execsnoop.o
+#MODS += $(OBJDIR)execsnoop_legacy.o
+#MODS += $(OBJDIR)opensnoop.o
+#MODS += $(OBJDIR)kvm-nested.o
+#
+#MODS += $(OBJDIR)pktdrop.o
+#MODS += $(OBJDIR)pktlatency.o
+#MODS += $(OBJDIR)ovslatency.o
+#MODS += $(OBJDIR)net_rx_action.o
+#MODS += $(OBJDIR)napi_poll.o
+#MODS += $(OBJDIR)xdp_devmap_xmit.o
+#
+#MODS += $(OBJDIR)tcp_probe.o
 MODS += $(OBJDIR)xdp_l2fwd.o
 MODS += $(OBJDIR)xdp_l3fwd.o
 MODS += $(OBJDIR)xdp_l3fwd_static.o
-MODS += $(OBJDIR)xdp_dummy.o
-MODS += $(OBJDIR)xdp_vmegress.o
-
-MODS += $(OBJDIR)acl_vm_tx.o
-MODS += $(OBJDIR)acl_vm_rx.o
-MODS += $(OBJDIR)rx_acl.o
+#MODS += $(OBJDIR)xdp_dummy.o
+#MODS += $(OBJDIR)xdp_vmegress.o
+#
+#MODS += $(OBJDIR)acl_vm_tx.o
+#MODS += $(OBJDIR)acl_vm_rx.o
+#MODS += $(OBJDIR)rx_acl.o
+MODS += $(OBJDIR)af_packet_filter.o
 
 VPATH := .
 
